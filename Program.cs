@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 class Program
 {
@@ -40,20 +41,23 @@ class Program
     static string GenerateNumberString(List<int> numbers)
     {
         string result = "";
+        StringBuilder SB = new StringBuilder();
         for (int i = 0; i < numbers.Count; i++)
         {
-            result += numbers[i].ToString() + ", ";
+            SB.Append($"{numbers[i].ToString()}, ");
         }
+        result = SB.ToString();
         return result.TrimEnd(',', ' ');
     }
 
     static string ConcatenateNumbers(List<int> numbers)
     {
-        string result = "";
+        StringBuilder SB = new StringBuilder();
         foreach (var number in numbers)
         {
-            result += number.ToString();
+            SB.Append(number);
         }
+        string result = SB.ToString();
         return result;
     }
 }
